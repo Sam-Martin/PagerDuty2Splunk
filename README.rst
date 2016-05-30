@@ -1,4 +1,4 @@
-PagerDuty2Splunk |pypiversion|
+PagerDuty2Splunk |pypiversion| |travisbuild|
 =======================
 
 
@@ -44,3 +44,4 @@ Arguments
 .. _HTTP Event Collector: http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
 .. _Generating an API Key: https://support.pagerduty.com/hc/en-us/articles/202829310-Generating-an-API-Key
 .. |pypiversion| image:: https://img.shields.io/pypi/v/pagerduty2splunk.svg
+.. |travisbuild| image:: https://travis-ci.org/Sam-Martin/PagerDuty2Splunk.svg?branch=master
