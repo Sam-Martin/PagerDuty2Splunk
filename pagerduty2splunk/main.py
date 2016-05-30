@@ -57,7 +57,7 @@ def format_pagerduty_logs_for_splunk(pagerduty_logs):
 def python_version_check(desired_version):
 
     version = sys.version_info
-    for index in range(0,len(version)):
+    for index in range(0,len(desired_version)):
         if version[index] > desired_version[index]:
             return True
         elif version[index] < desired_version[index]:
