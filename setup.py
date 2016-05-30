@@ -98,4 +98,6 @@ setup(
             'pagerduty2splunk=pagerduty2splunk:main',
         ],
     },
+    test_suite = 'pagerduty2splunk_test',
+    tests_require=['pytest'],
 )
