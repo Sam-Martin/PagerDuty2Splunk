@@ -1,3 +1,4 @@
 pagerduty2splunk.egg-info
 build
 dist
+*.pyc

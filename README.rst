@@ -1,5 +1,8 @@
-PagerDuty2Splunk
+PagerDuty2Splunk |pypiversion|
 =======================
+
+
+
 
 This module allows you to take logs from PagerDuty and push them into Splunk for analysis.
 https://github.com/Sam-Martin/PagerDuty2Splunk
@@ -40,3 +43,4 @@ Arguments
 
 .. _HTTP Event Collector: http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
 .. _Generating an API Key: https://support.pagerduty.com/hc/en-us/articles/202829310-Generating-an-API-Key
+.. |pypiversion| image:: https://img.shields.io/pypi/v/pagerduty2splunk.svg
