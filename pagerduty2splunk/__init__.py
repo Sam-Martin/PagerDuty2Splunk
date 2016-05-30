@@ -2,6 +2,7 @@ from datetime import datetime
 from datetime import timedelta
 import logging
 import argparse
+import sys
 
 from .main import push_pagerduty_to_splunk
 
