@@ -6,12 +6,31 @@ https://github.com/Sam-Martin/PagerDuty2Splunk
 
 ----
 
-Example
--------
+Installation
+--------------
+Provided you have Python installed, you can simply run:
 
 .. code-block::
 
-   pagerduty2splunk --log=INFO --start=0 --end=3 --splunk-token=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  --splunk-instance-id=prd-X-XXXXX --pagerduty-token=XXX-XXXXXXXXXXXXXXXX
+   pip install pagerduty2splunk
+
+Examples
+--------
+**Relative:** Push logs between yesterday and three days ago to Splunk:
+
+.. code-block::
+
+   pagerduty2splunk --log=INFO --start=1 --end=3 --splunk-token=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  --splunk-instance-id=prd-X-XXXXX --pagerduty-token=XXX-XXXXXXXXXXXXXXXX
+
+**Absolute**: Push logs from 2016-01-01 to 2016-01-05 to Splunk:
+
+.. code-block::
+
+   pagerduty2splunk --log=INFO --start=2016-01-01 --end=2015-01-05 --splunk-token=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  --splunk-instance-id=prd-X-XXXXX --pagerduty-token=XXX-XXXXXXXXXXXXXXXX
+
+
+Arguments
+----------
 
 * **splunk-instance-id** is the subdomain of your Splunk instance in Splunk cloud
 
