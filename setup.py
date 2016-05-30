@@ -11,7 +11,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='pagerduty2splunk',
 
-    version='0.0.3',
+    version='0.0.5',
 
     description='A tool for pushing PagerDuty logs to Splunk',
     long_description=long_description,
@@ -42,8 +42,6 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7'
     ],
 

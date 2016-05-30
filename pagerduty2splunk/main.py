@@ -6,6 +6,7 @@ import ssl
 import json
 import urllib
 import urllib2
+import sys
 
 
 def retrieve_pagerduty_logs (day_to_retrieve, pagination_offset, pagerduty_token):
@@ -53,20 +54,37 @@ def format_pagerduty_logs_for_splunk(pagerduty_logs):
     logging.debug(json.dumps(data))
     return data
 
+def python_version_check(desired_version):
+
+    version = sys.version_info
+    for index in range(0,len(version)):
+        if version[index] > desired_version[index]:
+            return True
+        elif version[index] < desired_version[index]:
+            return False
+
+    # The only possible outcome is exactly equal version so return True
+    return True
+
+
 def push_data_to_splunk(data, splunk_instance_id, splunk_token):
 
     # Trial splunk accounts use self-signed certs
-    ssl_context = ssl._create_unverified_context()
     logging.info("Pushing data to splunk")
     headers = {
         "Authorization" :"Splunk " + splunk_token,
         'Content-type': 'application/json'
     }
     url = "https://input-" + splunk_instance_id + ".cloud.splunk.com:8088/services/collector/event"
-
     req = urllib2.Request(url, data, headers=headers)
     try:
-        response = urllib2.urlopen(req,context = ssl_context)
+        if python_version_check([2,7,9]):
+            ssl_context = ssl._create_unverified_context()
+            response = urllib2.urlopen(req,context = ssl_context)
+        else:
+            logging.warning("You a using a version of Python older than 2.7.9, if you are on a Splunk trial subscription you will experience an SSL error unless you upgrade")
+            response = urllib2.urlopen(req)
+
     except urllib2.HTTPError, e:
         logging.error("Error sending data to Splunk: {0} {1}".format(e.code, e.reason))
         raise
